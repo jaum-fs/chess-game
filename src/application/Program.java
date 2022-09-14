@@ -18,7 +18,7 @@ public class Program {
 		ChessMatch x = new ChessMatch();
 		List<ChessPiece> captured = new ArrayList<>();
 		
-		while(true) {
+		while(!x.getCheckMate()) {
 			try {
 				UI.clearScreen();
 				
@@ -41,6 +41,17 @@ public class Program {
 					captured.add(capturedPiece);
 				}
 				
+				if(x.getPromoted()!=null) {
+					System.out.print("Escolha uma peça para promoção (B/N/R/Q): ");
+					String type = sc.nextLine().toUpperCase();
+					while(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
+						System.out.print("Escolha inválida! Escolha uma peça para promoção (B/N/R/Q): ");
+						type = sc.nextLine().toUpperCase();
+					}
+					x.replacePromotedPiece(type);
+				}
+				
+				
 			}
 			catch (ChessException e){
 				System.out.println(e.getMessage());
@@ -51,7 +62,8 @@ public class Program {
 				sc.nextLine();
 			}
 			
-			
 		}
+		UI.clearScreen();
+		UI.printMatch(x, captured);
 	}
 }
