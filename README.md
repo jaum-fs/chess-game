@@ -1,3 +1,5 @@
 # chess-game
 
-Jogo de xadrez feito durante o curso do prof Nelio Alves, em Java e usando o paradigma de orientação a objetos
+Console chess game para treinar as competencias de orientação a objetos
+
+recomendado usar o git bash para executar, assim as cores das peças estarão de acordo com o proposto
